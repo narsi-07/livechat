@@ -10,6 +10,9 @@ const server = app.listen(PORT, () =>
 );
 
 const io = socketio(server);
+app.get('/socket.io/socket.io.js', (req, res) => {
+  res.sendFile(require.resolve('socket.io-client/dist/socket.io.js'));
+});
 let sockets = [];
 let searching = [];
 let notAvailable = [];
